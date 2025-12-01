@@ -173,7 +173,7 @@ export default function ContextLayout({
           </div>
         </header>
 
-        <main className="px-4 py-2 overflow-y-auto h-[calc(100%-4rem)]">
+        <main className="px-2 overflow-y-auto h-[calc(100%-4rem)]">
           {children}
         </main>
       </div>
