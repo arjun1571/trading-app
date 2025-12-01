@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Icon from "@/@components/@core/Icon/Icon";
+import Image from "next/image";
+import logo from "@/@asstes/kings-of-asia.jpg";
 
 export default function ContextLayout({
   children,
@@ -18,27 +20,26 @@ export default function ContextLayout({
 
       <aside
         className={`
-          fixed top-0 left-0 h-full 
-          transition-all duration-300 ease-in-out z-[9999]
-          ${
-            open
-              ? "w-44 translate-x-0 bg-[#1c1f2d]"
-              : "w-20 translate-x-0 bg-primary"
-          }
-        `}
+    fixed top-0 left-0 h-full 
+    transition-all duration-300 ease-in-out z-[9999]
+    ${
+      open ? "w-44 translate-x-0 bg-[#1c1f2d]" : "w-20 translate-x-0 bg-primary"
+    }
+    flex flex-col
+  `}
       >
-        <div className="h-16 flex items-center justify-between  px-4">
+        <div className="h-16 flex items-center justify-between px-4">
           {open ? (
             <button
               onClick={() => setOpen(false)}
-              className="p-2  rounded-lg transition cursor-pointer"
+              className="p-2 rounded-lg transition cursor-pointer"
             >
               <Icon name="close" size={28} />
             </button>
           ) : (
             <button
               onClick={() => setOpen(true)}
-              className="p-2  rounded-lg transition cursor-pointer"
+              className="p-2 rounded-lg transition cursor-pointer"
             >
               <Icon name="menu_open" size={28} />
             </button>
@@ -53,7 +54,7 @@ export default function ContextLayout({
             { icon: "settings", label: "Tourna-ments" },
             { icon: "more_horiz", label: "More" },
           ].map((item, i) => (
-            <div key={i} className="   cursor-pointer transition ">
+            <div key={i} className="cursor-pointer transition">
               <div className="flex flex-col items-center gap-1 hover:bg-[#026fd3] px-8 py-2 rounded">
                 <Icon name={item.icon} size={24} />
                 <p className="text-[10px] text-center uppercase">
@@ -62,7 +63,57 @@ export default function ContextLayout({
               </div>
             </div>
           ))}
+
+          <div>
+            <Image src={logo} alt="" className="rounded-lg px-1" />
+          </div>
         </nav>
+
+        <div className="px-2 py-1 mt-auto pb-3 mx-auto">
+          <div className=" flex items-center justify-center mt-auto py-2 rounded mb-1 w-13">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex items-center gap-1 mb-1">
+                <Icon
+                  name="zoom_out_map"
+                  size={19}
+                  className="cursor-pointer text-[#6b6c74]"
+                />
+                <Icon
+                  name="arrow_circle_right"
+                  size={20}
+                  className="cursor-pointer text-[#6b6c74]"
+                  variant="outlined"
+                />
+              </div>
+              <div className="flex items-center gap-1 mb-1">
+                <Icon
+                  name="settings"
+                  size={20}
+                  className="cursor-pointer text-[#6b6c74]"
+                />
+                <Icon
+                  name="volume_up"
+                  size={20}
+                  className="cursor-pointer text-[#6b6c74]"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="bg-[#393a46] flex items-center justify-center mt-auto py-2 rounded mb-2 w-13">
+            <div className="flex flex-col items-center justify-center">
+              <Icon name="rocket" size={18} className="cursor-pointer" />
+              <p className="text-white text-[8px] mt-0.5 font-semibold uppercase">
+                Official
+              </p>
+            </div>
+          </div>
+          <div className="bg-[#12c65e] flex items-center justify-center mt-auto py-2 rounded w-13">
+            <div className="flex flex-col items-center justify-center">
+              <Icon name="adjust" size={18} className="cursor-pointer" />
+              <p className="text-white text-[11px]  font-semibold">Help</p>
+            </div>
+          </div>
+        </div>
       </aside>
 
       <div className="h-full pl-20">
@@ -77,6 +128,8 @@ export default function ContextLayout({
                 Web Trading Platform
               </p>
             </div>
+          </div>
+          <div>
             <div className="flex items-center bg-[#26a663] px-2 py-1.5 rounded-full text-sm gap-3 relative">
               <Icon
                 name="rocket_launch"
