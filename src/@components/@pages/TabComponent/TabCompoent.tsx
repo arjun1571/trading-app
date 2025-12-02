@@ -1,11 +1,12 @@
 "use client";
 import Icon from "@/@components/@core/Icon/Icon";
+import { TabItem } from "@/@interfaces/common.interface";
 import { useState } from "react";
 
 export default function Tabs() {
   const [active, setActive] = useState("orders");
 
-  const tabs = [
+  const tabs: TabItem[] = [
     { id: "orders", label: "Orders", icon: "sync_alt", value: 0 },
     { id: "trades", label: "Trades", icon: "schedule", value: 0 },
   ];
@@ -13,7 +14,7 @@ export default function Tabs() {
   return (
     <div className="w-full">
       <div className="flex gap-5 border-b border-gray-700 pb-2">
-        {tabs.map((tab) => (
+        {tabs.map((tab: TabItem) => (
           <button
             key={tab.id}
             onClick={() => setActive(tab.id)}

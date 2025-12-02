@@ -1,9 +1,9 @@
 "use client";
-
 import { useState } from "react";
 import Icon from "@/@components/@core/Icon/Icon";
 import Image from "next/image";
 import logo from "@/@asstes/kings-of-asia.jpg";
+import { MenuItem } from "@/@interfaces/common.interface";
 
 export default function ContextLayout({
   children,
@@ -11,6 +11,13 @@ export default function ContextLayout({
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const menuItems: MenuItem[] = [
+    { icon: "dashboard", label: "Trade" },
+    { icon: "sms", label: "Support" },
+    { icon: "account_box", label: "Account" },
+    { icon: "settings", label: "Tourna-ments" },
+    { icon: "more_horiz", label: "More" },
+  ];
 
   return (
     <div className="h-screen bg-gray-900 text-white relative overflow-hidden">
@@ -47,13 +54,7 @@ export default function ContextLayout({
         </div>
 
         <nav className="px-2 py-1 space-y-3 w-full">
-          {[
-            { icon: "dashboard", label: "Trade" },
-            { icon: "sms", label: "Support" },
-            { icon: "account_box", label: "Account" },
-            { icon: "settings", label: "Tourna-ments" },
-            { icon: "more_horiz", label: "More" },
-          ].map((item, i) => (
+          {menuItems?.map((item, i) => (
             <div key={i} className="cursor-pointer transition">
               <div className="flex flex-col items-center gap-1 hover:bg-[#026fd3] px-8 py-2 rounded">
                 <Icon name={item.icon} size={24} />
