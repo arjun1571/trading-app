@@ -45,12 +45,17 @@ export default function ActionBar() {
       <div>
         <TradeInput />
       </div>
-      <div>
+      <div className="block md:hidden">
+        <p className="text-center text-sm font-bold py-4  ">
+          Your payout: 1.87 $
+        </p>
+      </div>
+      <div className="flex md:flex-col gap-4">
         <button className="flex items-center justify-between bg-[#0faf59] px-4 py-3 rounded w-full">
           <p>Up</p>
           <Icon name="arrow_circle_up" className="text-gray-300" />
         </button>
-        <p className="text-center text-sm font-bold py-3">
+        <p className="text-center text-sm font-bold py-3 md:block hidden ">
           Your payout: 1.87 $
         </p>
         <button className="flex items-center justify-between bg-[#ff402b] px-4 py-3 rounded w-full">

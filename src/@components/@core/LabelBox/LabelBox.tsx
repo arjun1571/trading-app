@@ -17,7 +17,7 @@ export default function LabeledBox({
       <div className="border border-gray-600 rounded-lg p-3 pt-3 pb-3">
         {children}
       </div>
-      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#2b303f] px-2 text-xs text-blue-400">
+      <span className="absolute -bottom-2 top-11 left-1/2 -translate-x-1/2 bg-[#2b303f] px-2 text-[10px] text-blue-400">
         {bottomLabel}
       </span>
     </div>
